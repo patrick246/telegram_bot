@@ -73,3 +73,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# JetBrains
+.idea
+
+# Project specific
+auth_token.txt
