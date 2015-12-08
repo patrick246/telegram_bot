@@ -12,7 +12,7 @@ function Bot(auth_token, handler)
     this.previousID = 0;
     this.api.getMe(function(err, data){
         if(err)
-            return console.warn(err);
+            return console.error(err);
         console.log(data);
     });
     var this_ = this;

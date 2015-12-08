@@ -5,12 +5,17 @@
 var https = require('https');
 var fs = require('fs');
 var url = require('url');
+var util = require('util');
 
 function pr0bot_handler(bot, message)
 {
-    console.log("Message: ", message.text, "\nFrom: ", message.from.first_name, "\nIn: ",message.chat.title?message.chat.title:message.chat.first_name);
-    if(!message.text)
+    console.log(JSON.stringify(message));
+    if(!message.text || message.text == "")
         return;
+
+    if(message.text[0] !== "/")
+	return;
+
     var command = message.text.split(' ');
     var type = 'beliebt';
     var flags = 1;
@@ -54,6 +59,7 @@ function pr0bot_handler(bot, message)
         getImages(type, command.join(" "), flags, function (data) {
             var num = Math.random() * data.items.length;
             var picture = data.items[Math.floor(Math.random() * data.items.length)];
+	    if(!picture) return;
             var filename = picture.image.substr(picture.image.lastIndexOf('/')+1);
 
             download_picture('https://img.pr0gramm.com/' + picture.image, function (stream)
