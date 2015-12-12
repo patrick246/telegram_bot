@@ -16,7 +16,7 @@ function pr0bot_handler(bot, message)
     if(message.text[0] !== "/")
 	return;
 
-    var command = message.text.split(' ');
+    var command = message.text.replace('@p246_pr0ImageBot','').split(' ');
     var type = 'beliebt';
     var flags = 1;
     switch (command[0])
