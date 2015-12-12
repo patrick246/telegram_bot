@@ -79,3 +79,10 @@ $RECYCLE.BIN/
 
 # Project specific
 auth_token.txt
+auth_token.txt.old2
+log.txt
+mailaddresses-auth.json
+mailaddresses.json
+pr0bot.sh
+TelegramApi.js
+nohup.out
